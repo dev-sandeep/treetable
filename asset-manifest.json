@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/dev-sandeep/treetable/static/css/main.8afcf23c.chunk.css",
-    "main.js": "/dev-sandeep/treetable/static/js/main.f6ef3b52.chunk.js",
-    "main.js.map": "/dev-sandeep/treetable/static/js/main.f6ef3b52.chunk.js.map",
-    "runtime-main.js": "/dev-sandeep/treetable/static/js/runtime-main.eba04313.js",
-    "runtime-main.js.map": "/dev-sandeep/treetable/static/js/runtime-main.eba04313.js.map",
-    "static/js/2.5b5e5212.chunk.js": "/dev-sandeep/treetable/static/js/2.5b5e5212.chunk.js",
-    "static/js/2.5b5e5212.chunk.js.map": "/dev-sandeep/treetable/static/js/2.5b5e5212.chunk.js.map",
-    "index.html": "/dev-sandeep/treetable/index.html",
-    "precache-manifest.6ce12e2d54bf15eae7b503c36390e29b.js": "/dev-sandeep/treetable/precache-manifest.6ce12e2d54bf15eae7b503c36390e29b.js",
-    "service-worker.js": "/dev-sandeep/treetable/service-worker.js",
-    "static/css/main.8afcf23c.chunk.css.map": "/dev-sandeep/treetable/static/css/main.8afcf23c.chunk.css.map",
-    "static/js/2.5b5e5212.chunk.js.LICENSE.txt": "/dev-sandeep/treetable/static/js/2.5b5e5212.chunk.js.LICENSE.txt"
+    "main.css": "/treetable/static/css/main.8afcf23c.chunk.css",
+    "main.js": "/treetable/static/js/main.fad04055.chunk.js",
+    "main.js.map": "/treetable/static/js/main.fad04055.chunk.js.map",
+    "runtime-main.js": "/treetable/static/js/runtime-main.43c7cf31.js",
+    "runtime-main.js.map": "/treetable/static/js/runtime-main.43c7cf31.js.map",
+    "static/js/2.77f9eb77.chunk.js": "/treetable/static/js/2.77f9eb77.chunk.js",
+    "static/js/2.77f9eb77.chunk.js.map": "/treetable/static/js/2.77f9eb77.chunk.js.map",
+    "index.html": "/treetable/index.html",
+    "precache-manifest.cc20772962d79875c517022cef65e2c9.js": "/treetable/precache-manifest.cc20772962d79875c517022cef65e2c9.js",
+    "service-worker.js": "/treetable/service-worker.js",
+    "static/css/main.8afcf23c.chunk.css.map": "/treetable/static/css/main.8afcf23c.chunk.css.map",
+    "static/js/2.77f9eb77.chunk.js.LICENSE.txt": "/treetable/static/js/2.77f9eb77.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.eba04313.js",
-    "static/js/2.5b5e5212.chunk.js",
+    "static/js/runtime-main.43c7cf31.js",
+    "static/js/2.77f9eb77.chunk.js",
     "static/css/main.8afcf23c.chunk.css",
-    "static/js/main.f6ef3b52.chunk.js"
+    "static/js/main.fad04055.chunk.js"
   ]
 }
