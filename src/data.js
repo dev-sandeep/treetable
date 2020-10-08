@@ -1,4 +1,4 @@
-export const data = [
+export const jsonData = [
     {
        "data":{
           "Identification number":"34",

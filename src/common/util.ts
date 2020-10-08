@@ -2,43 +2,61 @@
  * A central utility function for all the common usage
  */
 
-import {TEMP_REF} from '../common/constants';
-import {DataObjTs} from './../models/data'
+import { TEMP_REF } from '../common/constants';
+import { DataObjTs, UnknownSingleChildObjTs } from './../models/data'
 
 /**
- * traversing the original JSON data and adding an identification number
- * @param {} data 
+ * responsible for return the first proprty of an object
+ * @param obj any object
  */
-export const addIdentificationNum = (data:DataObjTs[]) => {
-    let id = 1;
-    const recursion = (data:DataObjTs[]) => {
-        data.forEach(el => {
-            el.data[TEMP_REF] = id++;
-            if (Object.keys(el.kids).length > 0) {
-                Object.keys(el.kids).forEach((key) => {
-                    recursion(el.kids[key].records);
-                })
-            }
-        })
-    }
-    recursion(data);
+const firstObjectOf = (obj: UnknownSingleChildObjTs): string =>
+    Object.keys(obj).length > 0 ? Object.keys(obj)[0] : '';
 
-    console.log(data);
-    return data;
+/**
+ * responsible for distributing temporary ids for tracking the data in a consistent manner
+ * @param (Array) main data set
+ */
+export const addIdentificationNum = (data: DataObjTs[]): DataObjTs[] => {
+    let ctr = 1;
+    const loop = (data: DataObjTs[]): DataObjTs[] => {
+        return data.reduce((aggregator: any, current) => {
+            return [
+                ...aggregator,
+                {
+                    ...current,
+                    data: {
+                        ...current.data,
+                        [TEMP_REF]: ctr++
+                    },
+                    kids: Object.keys(current['kids']).length > 0 ?
+                        ({
+                            ...current.kids,
+                            [firstObjectOf(current.kids)]: {
+                                ...current.kids[firstObjectOf(current.kids)],
+                                records: loop(current.kids[firstObjectOf(current.kids)].records)
+                            }
+                        }) : {}
+                }
+            ]
+        }, []);
+    }
+
+    return loop(data);
 }
 
 /**
  * if there is no item in kid's => record then make kids={}
+ * @param (Array) main data set
  */
-const manageKidsValue = (data:DataObjTs[])=>{
-    const recursion = (data:DataObjTs[])=>{
+const manageKidsValue = (data: DataObjTs[]) => {
+    const recursion = (data: DataObjTs[]) => {
         data.forEach(el => {
             if (Object.keys(el.kids).length > 0) {
                 Object.keys(el.kids).forEach((key) => {
                     //going one level deep and checking if there is any records available
-                    if(el.kids[key].records.length === 0){
+                    if (el.kids[key].records.length === 0) {
                         el.kids = {};
-                    }else{
+                    } else {
                         recursion(el.kids[key].records);
                     }
                 })
@@ -51,35 +69,29 @@ const manageKidsValue = (data:DataObjTs[])=>{
 
 /**
  * responsible for removing a particular item with its children
+ * @param data (Array) main data set
+ * @param remId (number) id of the row which needs to be deleted
  */
-export const removeData = (data:DataObjTs[], remId:number)=>{
-    const remove = (data:DataObjTs[], remId:number)=>{
-        let deletedIndex = -1;
-        //traversing and checking if the temp_ref matches the id requested to remove
-        data.forEach((el, i)=>{
-            if(remId === el.data[TEMP_REF]){
-                //simply making its kids empty
-                el.kids = {};
-                //saving the index to delete it
-                deletedIndex = i;
+export const removeData = (data: DataObjTs[], remId: number) => {
+    const loop = (data: DataObjTs[]) => {
+        return data.filter((current) => {
+            current.kids = Object.keys(current['kids']).length > 0 ?
+                ({
+                    ...current.kids,
+                    [firstObjectOf(current.kids)]: {
+                        ...current.kids[firstObjectOf(current.kids)],
+                        records: loop(current.kids[firstObjectOf(current.kids)].records)
+                    }
+                }) : {}
+
+            if (current.data[TEMP_REF] !== remId) {
+                return true;
+            } else {
+                return false;
             }
 
-            if(Object.keys(el.kids).length > 0){
-                Object.keys(el.kids).forEach((key)=>{ 
-                    //recursion 
-                    remove(el.kids[key].records, remId);
-                }); 
-            }
-        });
-
-        if(deletedIndex !== -1){
-            data.splice(deletedIndex,1);
-        } 
+        })
     }
-
-    remove(data, remId);
-    //to maintain data consistency. assigning the kids with {} 
-    //if no records left in kids after deletion
-    manageKidsValue(data);
-    return data;
+    return manageKidsValue(loop(data));
 }
+

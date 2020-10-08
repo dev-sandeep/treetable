@@ -1,16 +1,22 @@
-import { data } from '../data'
+import { jsonData } from '../data'
 import { addIdentificationNum, removeData } from '../common/util'
+import { DataObjTs } from '../models/data'
 
 interface ActionTs {
     type: string,
     id: number,
 }
 
-const defaultStore = {
-    data: addIdentificationNum(data)
+interface defaultStoreTs {
+    data: DataObjTs[]
+} 
+
+const defaultStore:defaultStoreTs = {
+    data: addIdentificationNum(jsonData)
 }
 
 function Reducer(state = defaultStore, action: ActionTs) {
+    let data:DataObjTs[] = state.data;
     switch (action.type) {
         case 'remove': {
             return {

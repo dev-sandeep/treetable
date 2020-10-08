@@ -6,7 +6,7 @@ import reducer from './redux/reducer'
 import './App.css';
 
 //creating a redux store and passinng the reducer
-const reduxData = createStore(reducer);
+const reduxData:any = createStore(reducer);
 
 const App:FC = () => {
   return (
