@@ -36,7 +36,7 @@ export const CursorDiv = styled.div`
 /**
  * responsible for loading the normal rows and also nested rows
  */
-const TableBody = ({ data }: TbodyTs) => {
+const TableBody = ({ data }: TbodyTs):JSX.Element => {
     const dispatch = useDispatch();
     const [isVisible, setIsVisible] = useState(false);
     const [selectedRowId, setSelectedRowId] = useState(0);

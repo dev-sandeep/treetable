@@ -16,7 +16,7 @@ const TdWrapper = styled.td`
 `;
 
 
-const Row = ({ data, type }:RowComponentTs) => {
+const Row = ({ data, type }:RowComponentTs):JSX.Element => {
        
     return (
         <>

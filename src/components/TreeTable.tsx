@@ -58,7 +58,7 @@ const NoData = () => (
     </>
 );
 
-const TreeTable = ({ queryData, title }: TableTs) => {
+const TreeTable = ({ queryData, title }: TableTs):JSX.Element => {
     return (
         <>
             {queryData.length === 0 ? (<NoData />) : (
