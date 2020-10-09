@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test for Row 1`] = `
+Array [
+  <td
+    className="sc-bdnylx enjUwz"
+  >
+    34
+  </td>,
+  <td
+    className="sc-bdnylx enjUwz"
+  >
+    Joqmo
+  </td>,
+  <td
+    className="sc-bdnylx enjUwz"
+  >
+    female
+  </td>,
+  <td
+    className="sc-bdnylx enjUwz"
+  >
+    BITES
+  </td>,
+  <td
+    className="sc-bdnylx enjUwz"
+  >
+    6.2000000000
+  </td>,
+  <td
+    className="sc-bdnylx enjUwz"
+  >
+    98
+  </td>,
+  <td
+    className="sc-bdnylx enjUwz"
+  >
+    Mon Dec 13 00:00:00 CET 1993
+  </td>,
+  <td
+    className="sc-bdnylx enjUwz"
+  >
+    Wed Dec 24 07:14:50 CET 2014
+  </td>,
+  <td
+    className="sc-bdnylx enjUwz"
+  >
+    67035
+  </td>,
+  <td
+    className="sc-bdnylx enjUwz"
+  >
+    true
+  </td>,
+]
+`;
+
+exports[`snapshot test for table-body when no data 1`] = `
+Array [
+  <h2>
+    No Data- :(
+  </h2>,
+  <h5>
+    You must have deleted everything, refresh the page!
+  </h5>,
+]
+`;
+
+exports[`snapshot test for tablebody 1`] = `
+Array [
+  <h2>
+    No Data- :(
+  </h2>,
+  <h5>
+    You must have deleted everything, refresh the page!
+  </h5>,
+]
+`;

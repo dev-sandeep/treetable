@@ -53,7 +53,7 @@ const TableHeader = ({ data }: TableHeaderTs) => {
 
 const NoData = () => (
     <>
-        <h2>No Data :(</h2>
+        <h2>No Data- :(</h2>
         <h5>You must have deleted everything, refresh the page!</h5>
     </>
 );
